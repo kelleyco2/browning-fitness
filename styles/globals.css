@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .font-sm {
+    @apply text-sm font-normal;
+  }
+
+  .font-base {
+    @apply text-base font-normal;
+  }
+
+  .font-f5 {
+    @apply text-f5 font-bold;
+  }
+
+  .font-f4 {
+    @apply text-f4 font-medium;
+  }
+
+  .font-f3 {
+    @apply text-f3 font-bold;
+  }
+
+  .font-f2 {
+    @apply text-f3 lg:text-f2 font-bold;
+  }
+
+  .font-f1 {
+    @apply text-f3 lg:text-f1 font-bold;
+  }
+
+  .input-container:focus-within label {
+    transform: translate(16px, 6px) scale(0.8);
+  }
+
+  .input-container:focus-within input {
+    outline: none;
+    @apply border-2 border-primary;
+  }
+
+  .input-container .filled {
+    transform: translate(16px, 6px) scale(0.8);
+  }
+
+  input[type="radio"] {
+    display: grid;
+    place-content: center;
+    appearance: none;
+    background-color: #fff;
+    font: inherit;
+    color: currentColor;
+    width: 24px;
+    height: 24px;
+    transform: translateY(0);
+    @apply border-[0.15em] border-primary rounded-[50%];
+  }
+
+  input[type="radio"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    @apply shadow-[inset_1em_1em_theme(colors.primary)];
+  }
+
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+
+  input[type="radio"]:focus {
+    outline: 2px solid theme(colors.primary);
+    outline-offset: 2px;
+  }
+
+  .radio {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 8px;
+    width: fit-content;
+  }
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: none;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Work Sans", sans-serif;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+svg {
+  fill: black;
+}
