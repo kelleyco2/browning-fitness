@@ -11,7 +11,7 @@ import Services from "../components/Services";
 import TwoColumn from "../components/TwoColumn";
 
 export default function Home() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState<string | null>("");
   return (
     <Layout headerVariant={HeaderVariants.SECONDARY}>
       <Section variant={SectionVariants.LARGE}>
