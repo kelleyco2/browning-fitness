@@ -1,11 +1,15 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
 // TODO: Update font
-import { Work_Sans } from '@next/font/google'
+import { Work_Sans } from "@next/font/google";
+import { SessionProvider } from "next-auth/react";
 
-const work_sans = Work_Sans({ subsets: ['latin'] })
+const work_sans = Work_Sans({ subsets: ["latin"] });
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
     <>
       <style jsx global>{`
@@ -13,7 +17,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           font-family: ${work_sans.style.fontFamily};
         }
       `}</style>
-      <Component {...pageProps} />
+      <SessionProvider session={session}>
+        <Component {...pageProps} />
+      </SessionProvider>
     </>
-  )
+  );
 }

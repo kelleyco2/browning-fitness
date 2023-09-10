@@ -9,9 +9,12 @@ import Radio from "../components/Radio";
 import Section, { SectionVariants } from "../components/Section";
 import Services from "../components/Services";
 import TwoColumn from "../components/TwoColumn";
+import { useSession } from "next-auth/react";
 
 export default function Home() {
   const [value, setValue] = useState<string | null>("");
+  const { data: session } = useSession();
+  console.log(session);
   return (
     <Layout headerVariant={HeaderVariants.SECONDARY}>
       <Section variant={SectionVariants.LARGE}>
