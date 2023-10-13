@@ -9,9 +9,10 @@ import { useState } from "react";
 import MobileMenu from "./MobileMenu";
 
 const navConfig = [
+  { label: "Home", href: "/" },
   {
     label: "Services",
-    href: "/",
+    href: "/services",
   },
   {
     label: "Portfolio",
@@ -19,7 +20,7 @@ const navConfig = [
   },
   {
     label: "About",
-    href: "/",
+    href: "/about",
   },
 ];
 

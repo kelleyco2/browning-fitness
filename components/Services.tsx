@@ -38,7 +38,7 @@ const mockServiceList = [
 ];
 
 const Services = ({
-  mainHeading = "Heading Text",
+  mainHeading,
   serviceList = mockServiceList,
 }: ServicesProps) => {
   return (

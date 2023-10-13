@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     // TODO: Update colors
     colors: {
-      primary: "#2762EC",
-      secondary: "#",
-      tertiary: "#",
+      primary: "#000000",
+      secondary: "#FFFFFF",
+      tertiary: "#A8A9AD",
       pale_primary: "",
       black: "#000000",
       white: "#FFFFFF",
