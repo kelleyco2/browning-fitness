@@ -7,15 +7,15 @@ import FullWidthCta from "../components/FullWidthCta";
 import { ButtonVariants } from "../components/Button";
 import FullWidthQuote from "../components/FullWidthQuote";
 
-export default function about() {
+const About = () => {
   const router = useRouter();
   return (
     <>
-      {/* <SEO
-            title="About | Browning Fitness"
-            description="Become a better athlete on YOUR schedule."
-            asPath={router.asPath}
-        /> */}
+      <SEO
+        title="About | Browning Fitness"
+        description="Become a better athlete on YOUR schedule."
+        asPath={router.asPath}
+      />
       <Layout headerVariant={HeaderVariants.PRIMARY}>
         <TwoColumn
           cta={{
@@ -66,4 +66,6 @@ export default function about() {
       </Layout>
     </>
   );
-}
+};
+
+export default About;
