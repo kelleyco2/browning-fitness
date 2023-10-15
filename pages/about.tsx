@@ -16,7 +16,7 @@ const About = () => {
         description="Become a better athlete on YOUR schedule."
         asPath={router.asPath}
       />
-      <Layout headerVariant={HeaderVariants.PRIMARY}>
+      <Layout headerVariant={HeaderVariants.SECONDARY}>
         <TwoColumn
           cta={{
             href: "/pricing",

@@ -6,31 +6,20 @@ import { IconType } from "../svgs/icons.constants";
 
 const footerNavConfig = [
   {
-    label: "Services",
-    href: "/",
-  },
-  {
-    label: "Portfolio",
-    href: "/",
-  },
-  {
     label: "About",
-    href: "/",
-  },
-];
-
-const footnoteConfig = [
-  {
-    label: "Services",
-    href: "/",
+    href: "/about",
   },
   {
-    label: "Portfolio",
-    href: "/",
+    label: "Dashboard",
+    href: "/Dashboard",
   },
   {
-    label: "About",
-    href: "/",
+    label: "Pricing",
+    href: "/pricing",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
   },
 ];
 
@@ -43,9 +32,11 @@ const Footer = () => {
             <li className="mb-12 md:mb-0 md:mr-10">
               <Link href="/">
                 <Image
-                  src={logo}
+                  src="/logo.jpeg"
                   alt="footer logo"
-                  className="max-w-[168px] h-10"
+                  width={32}
+                  height={32}
+                  // className="max-w-[168px] h-10"
                 />
               </Link>
             </li>
@@ -73,11 +64,23 @@ const Footer = () => {
           ))}
         </ul>
         <div className="flex mb-8 md:mb-0">
-          <Link href="/" className="mr-6">
-            <Icon type={IconType.FB} />
+          <Link
+            href="https://instagram.com/browning.fitness?igshid=MmIzYWVlNDQ5Yg%3D%3D"
+            className="mr-6 w-[20px] h-[20px] text-grey2"
+          >
+            <Icon type={IconType.INSTAGRAM} />
           </Link>
-          <Link href="/">
-            <Icon type={IconType.LINKEDIN} />
+          <Link
+            className="mr-6 w-[20px] h-[20px] text-grey2"
+            href="https://youtube.com/@BrowningFitness"
+          >
+            <Icon type={IconType.YT} />
+          </Link>
+          <Link
+            className="mr-6 w-[20px] h-[20px] text-grey2"
+            href="https://www.tiktok.com/@ogden.athletes?_r=1&_t=8cb3nN61ikY"
+          >
+            <Icon type={IconType.TIKTOK} />
           </Link>
         </div>
       </div>

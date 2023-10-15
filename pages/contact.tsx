@@ -4,8 +4,11 @@ import Input from "../components/Input";
 import Button, { ButtonVariants } from "../components/Button";
 import { useState } from "react";
 import axios from "axios";
+import SEO from "../components/SEO";
+import { useRouter } from "next/router";
 
 const Contact = () => {
+  const { asPath } = useRouter();
   const [firstName, setFirstName] = useState<string | null>("");
   const [lastName, setLastName] = useState<string | null>("");
   const [email, setEmail] = useState<string | null>("");
@@ -73,61 +76,68 @@ const Contact = () => {
   };
 
   return (
-    <Layout headerVariant={HeaderVariants.PRIMARY}>
-      <section className="mx-auto px-4 md:px-10 py-12 md:py-[88px] max-w-[780px]">
-        <h1 className="mb-4 font-f1">Contact me</h1>
-        <p className="mb-6 text-grey2 font-f4">Contact me</p>
-        <div className="flex flex-col">
-          <div className="flex flex-col md:flex-row">
+    <>
+      <SEO
+        title="Contact | Browning Fitness"
+        description="Become a better athlete on YOUR schedule."
+        asPath={asPath}
+      />
+      <Layout headerVariant={HeaderVariants.SECONDARY}>
+        <section className="mx-auto px-4 md:px-10 py-12 md:py-[88px] max-w-[780px]">
+          <h1 className="mb-4 font-f1">Contact me</h1>
+          <p className="mb-6 text-grey2 font-f4">Contact me</p>
+          <div className="flex flex-col">
+            <div className="flex flex-col md:flex-row">
+              <Input
+                value={firstName}
+                setValue={setFirstName}
+                name="firstName"
+                label="First name"
+                className="mb-4 md:mr-2 w-full"
+              />
+              <Input
+                value={lastName}
+                setValue={setLastName}
+                name="lastName"
+                label="Last name"
+                className="mb-4 w-full"
+              />
+            </div>
             <Input
-              value={firstName}
-              setValue={setFirstName}
-              name="firstName"
-              label="First name"
-              className="mb-4 md:mr-2 w-full"
+              value={email}
+              setValue={setEmail}
+              name="email"
+              label="Email"
+              className="mb-4"
             />
             <Input
-              value={lastName}
-              setValue={setLastName}
-              name="lastName"
-              label="Last name"
-              className="mb-4 w-full"
+              value={message}
+              setValue={setMessage}
+              name="message"
+              label="Message"
+              textarea
+              textareaClassName="resize-none h-[154px]"
             />
           </div>
-          <Input
-            value={email}
-            setValue={setEmail}
-            name="email"
-            label="Email"
-            className="mb-4"
-          />
-          <Input
-            value={message}
-            setValue={setMessage}
-            name="message"
-            label="Message"
-            textarea
-            textareaClassName="resize-none h-[154px]"
-          />
-        </div>
-        <div className="flex justify-between items-center w-full mt-6">
-          <p className={`${successMessage ? "text-success" : "text-error"}`}>
-            {successMessage ? successMessage : errorMessage}
-          </p>
-          <Button
-            href={""}
-            onClick={handleSubmit}
-            variant={ButtonVariants.PRIMARY}
-          >
-            {loading
-              ? "Submitting..."
-              : success
-              ? "Submitted!"
-              : "Submit message"}
-          </Button>
-        </div>
-      </section>
-    </Layout>
+          <div className="flex justify-between items-center w-full mt-6">
+            <p className={`${successMessage ? "text-success" : "text-error"}`}>
+              {successMessage ? successMessage : errorMessage}
+            </p>
+            <Button
+              href={""}
+              onClick={handleSubmit}
+              variant={ButtonVariants.PRIMARY}
+            >
+              {loading
+                ? "Submitting..."
+                : success
+                ? "Submitted!"
+                : "Submit message"}
+            </Button>
+          </div>
+        </section>
+      </Layout>
+    </>
   );
 };
 

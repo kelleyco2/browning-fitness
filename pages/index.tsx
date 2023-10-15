@@ -1,15 +1,11 @@
-import { useState } from "react";
-import Button, { ButtonVariants } from "../components/Button";
+import { useRouter } from "next/router";
+import { ButtonVariants } from "../components/Button";
 import FullWidthCta from "../components/FullWidthCta";
-import FullWidthQuote from "../components/FullWidthQuote";
 import { HeaderVariants } from "../components/Header";
-import Input from "../components/Input";
 import Layout from "../components/Layout";
-import Radio from "../components/Radio";
-import Section, { SectionVariants } from "../components/Section";
+import SEO from "../components/SEO";
 import Services from "../components/Services";
 import TwoColumn from "../components/TwoColumn";
-import { useSession } from "next-auth/react";
 import { IconType } from "../svgs/icons.constants";
 
 const ServiceList = [
@@ -36,53 +32,54 @@ const ServiceList = [
 ];
 
 export default function Home() {
-  const [value, setValue] = useState<string | null>("");
-  const { data: session } = useSession();
-  console.log(session);
+  const { asPath } = useRouter();
   return (
-    <Layout headerVariant={HeaderVariants.SECONDARY}>
-      <FullWidthCta
-        hero
-        heading="Sports R good"
-        subheading="Let's sport n stuff"
-        cta={{
-          href: "/contact",
-          text: "Contact me",
-          variant: ButtonVariants.WHITE,
-        }}
+    <>
+      <SEO
+        title="Browning Fitness"
+        description="Become a better athlete on YOUR schedule."
+        asPath={asPath}
       />
-      <Services
-        mainHeading="Become a better athlete on YOUR time."
-        serviceList={ServiceList}
-      />
-      <TwoColumn
-        content={{
-          heading: "Support the team!",
-          subheading: "Follow us on social media",
-          body: "",
-        }}
-      />
-      <Section variant={SectionVariants.LARGE}>
-        <Button
-          className="mb-4"
-          href="/"
-          variant={ButtonVariants.PRIMARY}
-          iconRight
-        >
-          Test button
-        </Button>
-        <Input
-          name="test-input"
-          label="Test input"
-          value={value}
-          setValue={setValue}
+      <Layout headerVariant={HeaderVariants.SECONDARY}>
+        <FullWidthCta
+          hero
+          heading="Browning Fitness"
+          cta={{
+            href: "/pricing",
+            text: "Subscribe now",
+            variant: ButtonVariants.WHITE,
+          }}
         />
-        <Radio className="my-4" name="radio" label="Test radio" />
-        <Radio name="radio" label="Test radio" />
-      </Section>
-      <FullWidthCta subheading="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac a fringilla pharetra, scelerisque tellus. Diam etiam id dolor pretium lectus tempor mi enim ultricies." />
-      <TwoColumn />
-      <FullWidthQuote quote="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac a fringilla pharetra, scelerisque tellus. Diam etiam id dolor pretium lectus tempor mi enim ultricies." />
-    </Layout>
+        <Services
+          mainHeading="Become a better athlete on YOUR time."
+          serviceList={ServiceList}
+        />
+        <TwoColumn
+          content={{
+            heading: "",
+            subheading: "Elevate your athleticism",
+            body: "Becoming a better all-around athlete is an inspiring journey of continuous growth. It's about refining your physical skills, nurturing mental resilience, and demonstrating sportsmanship. Through dedicated training, proper nutrition, and unwavering determination, you can reach new heights. Set bold goals, embrace expert guidance, and cultivate a relentless passion for self-improvement, both on and off the field. Your path to excellence is marked by persistence and boundless inspiration.",
+          }}
+          image={{
+            src: "/dumbells.jpg",
+            alt: "dumbells",
+          }}
+          cta={{
+            href: "/pricing",
+            text: "Subscribe now",
+            variant: ButtonVariants.PRIMARY,
+          }}
+        />
+        <FullWidthCta
+          heading="Commit to unlocking your full pototential"
+          subheading="Embrace your athletic journey, where unwavering commitment breeds excellence. Each step forges the strongest version of you."
+          cta={{
+            href: "/pricing",
+            text: "Subscribe now",
+            variant: ButtonVariants.WHITE,
+          }}
+        />
+      </Layout>
+    </>
   );
 }
