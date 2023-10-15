@@ -42,7 +42,7 @@ const Button: FC<ButtonProps> = ({
     [`fill-black ${iconSpacing}`]: isWhite,
   });
 
-  const sharedButtonClasses = `flex w-fit items-center`;
+  const sharedButtonClasses = `flex w-fit items-center font-bold`;
   const buttonClass = classNames(
     "p-4 font-base",
     {

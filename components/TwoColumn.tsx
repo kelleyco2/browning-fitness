@@ -6,6 +6,7 @@ import Section, { SectionVariants } from "./Section";
 
 type Content = {
   heading: string;
+  subheading?: string;
   body: string;
 };
 
@@ -18,6 +19,8 @@ export type CTA = {
 type Image = {
   src: string | null;
   alt: string;
+  width?: number;
+  height?: number;
 };
 
 type TwoColumnProps = {
@@ -29,8 +32,9 @@ type TwoColumnProps = {
 };
 
 const defaultContent: Content = {
-  heading: "Heading goes here",
-  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Malesuada ligula enim consequat malesuada quisque amet. Sed leo, pretium curabitur sed adipiscing massa.",
+  heading: "Heading Text",
+  subheading: "Subheading Text",
+  body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac a fringilla pharetra, scelerisque tellus. Diam etiam id dolor pretium lectus tempor mi enim ultricies.",
 };
 
 const defaultCta: CTA = {
@@ -64,12 +68,13 @@ const TwoColumn = ({
       variant={SectionVariants.LARGE}
       innerClassName={innerSectionClassName}
     >
-      <div className="relative mb-4 md:mb-0 md:w-1/2 w-full">
+      <div className="relative mb-4 md:mb-0 md:w-1/2 w-full h-[375px]">
         <Image
           src={image.src ?? "/placeholder.png"}
           alt={image.alt}
-          width={578}
-          height={410}
+          // width={image.width ?? 510}
+          // height={image.height ?? 470}
+          fill
           priority={hero}
         />
       </div>
@@ -80,6 +85,7 @@ const TwoColumn = ({
         ) : (
           <h2 className="font-f1 mb-2">{content.heading}</h2>
         )}
+        {content.subheading && <p className="mb-6">{content.subheading}</p>}
         <p className="font-base text-grey2 mb-6">{content.body}</p>
         <Button
           variant={ButtonVariants.PRIMARY}

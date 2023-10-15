@@ -75,8 +75,8 @@ const Contact = () => {
   return (
     <Layout headerVariant={HeaderVariants.PRIMARY}>
       <section className="mx-auto px-4 md:px-10 py-12 md:py-[88px] max-w-[780px]">
-        <h1 className="mb-4 font-f1">Contact us</h1>
-        <p className="mb-6 text-grey2 font-f4">Contact us</p>
+        <h1 className="mb-4 font-f1">Contact me</h1>
+        <p className="mb-6 text-grey2 font-f4">Contact me</p>
         <div className="flex flex-col">
           <div className="flex flex-col md:flex-row">
             <Input
