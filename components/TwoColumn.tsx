@@ -72,9 +72,8 @@ const TwoColumn = ({
         <Image
           src={image.src ?? "/placeholder.png"}
           alt={image.alt}
-          // width={image.width ?? 510}
-          // height={image.height ?? 470}
           fill
+          className="object-contain"
           priority={hero}
         />
       </div>
@@ -85,7 +84,9 @@ const TwoColumn = ({
         ) : (
           <h2 className="font-f1 mb-2">{content.heading}</h2>
         )}
-        {content.subheading && <p className="mb-6">{content.subheading}</p>}
+        {content.subheading && (
+          <h3 className="font-f2 mb-6">{content.subheading}</h3>
+        )}
         <p className="font-base text-grey2 mb-6">{content.body}</p>
         <Button
           variant={ButtonVariants.PRIMARY}

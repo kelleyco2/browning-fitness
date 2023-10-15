@@ -37,13 +37,28 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id                       String                    @id @default(cuid())
+  name                     String?
+  email                    String?                   @unique
+  emailVerified            DateTime?
+  image                    String?
+  accounts                 Account[]
+  sessions                 Session[]
+  stripeCustomerId         String? // link to Stripe customer object in Stripe's system
+  stripeSubscriptionId     String? // link to Stripe subscription object for user in Stripe's system
+  stripeSubscriptionStatus StripeSubscriptionStatus? // status of user's subscription to determine access to services
+}
+
+// https://stripe.com/docs/api/subscriptions/object#subscription_object-status
+enum StripeSubscriptionStatus {
+  incomplete
+  incomplete_expired
+  trialing
+  active
+  past_due
+  canceled
+  unpaid
+  paused
 }
 
 model VerificationToken {
@@ -52,4 +67,17 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model StripeEvent {
+  id               String   @id @unique
+  api_version      String?
+  data             Json
+  request          Json?
+  type             String
+  object           String
+  account          String?
+  created          DateTime
+  livemode         Boolean
+  pending_webhooks Int
 }

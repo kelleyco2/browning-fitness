@@ -1,6 +1,6 @@
 const config = {
-  companyName: "Company Name",
-  receivingEmailAddress: "asdf@asdf.com",
+  companyName: "Browning Fitness",
+  receivingEmailAddress: "zak.lyle.browning@gmail.com",
 };
 
 export default config;

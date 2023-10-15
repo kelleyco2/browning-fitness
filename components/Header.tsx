@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import classNames from "classnames";
 import Button, { ButtonVariants } from "./Button";
-import logoPrimary from "../assets/Logo@2x.png";
-import logoSecondary from "../assets/Logo@2x-1.png";
 import Burger from "./Burger";
 import { useState } from "react";
 import MobileMenu from "./MobileMenu";
@@ -11,16 +9,20 @@ import MobileMenu from "./MobileMenu";
 const navConfig = [
   { label: "Home", href: "/" },
   {
-    label: "Services",
-    href: "/services",
-  },
-  {
-    label: "Portfolio",
-    href: "/",
-  },
-  {
     label: "About",
     href: "/about",
+  },
+  {
+    label: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    label: "Pricing",
+    href: "/pricing",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
   },
 ];
 
@@ -46,11 +48,7 @@ const Header = ({ variant }: HeaderProps) => {
       )}
     >
       <Link href="/">
-        <Image
-          src={isPrimary ? logoPrimary : logoSecondary}
-          alt="company logo"
-          className="max-w-[168px] h-10"
-        />
+        <Image src="/logo.jpeg" width={48} height={48} alt="company logo" />
       </Link>
       <nav className="hidden md:block">
         <ul className="flex items-center">
@@ -64,9 +62,9 @@ const Header = ({ variant }: HeaderProps) => {
               variant={
                 isPrimary ? ButtonVariants.PRIMARY : ButtonVariants.WHITE
               }
-              href="/"
+              href="/pricing"
             >
-              Work with us
+              Subscribe now
             </Button>
           </li>
         </ul>

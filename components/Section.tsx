@@ -4,6 +4,7 @@ import classNames from "classnames";
 export enum SectionVariants {
   MEDIUM = "medium",
   LARGE = "large",
+  XL = "xl",
 }
 
 type SectionProps = {
@@ -23,6 +24,7 @@ const Section = ({
 }: SectionProps) => {
   const isMedium = variant === SectionVariants.MEDIUM;
   const isLarge = variant === SectionVariants.LARGE;
+  const isXl = variant === SectionVariants.XL;
 
   const sectionClassNames = classNames(
     "mx-auto px-4 md:px-10 py-12",
@@ -30,6 +32,7 @@ const Section = ({
     {
       "lg:py-16": isMedium,
       "lg:py-[88px]": isLarge,
+      "lg:py-[148px]": isXl,
     }
   );
 

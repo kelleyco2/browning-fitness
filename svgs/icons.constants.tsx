@@ -8,6 +8,10 @@ import { ReactComponent as Laptop } from "./Laptop.svg";
 import { ReactComponent as Camera } from "./Camera.svg";
 import { ReactComponent as Trophy } from "./Trophy.svg";
 import { ReactComponent as Dumbbell } from "./Dumbbell.svg";
+import { ReactComponent as Speed } from "./Speed.svg";
+import { ReactComponent as Instagram } from "./Instagram.svg";
+import { ReactComponent as YT } from "./YT.svg";
+import { ReactComponent as Tiktok } from "./Tiktok.svg";
 
 export enum IconType {
   RIGHT_ARROW = "right-arrow",
@@ -19,6 +23,10 @@ export enum IconType {
   CAMERA = "camera",
   TROPHY = "trophy",
   DUMBBELL = "dumbbell",
+  SPEED = "speed",
+  INSTAGRAM = "instagram",
+  YT = "youtube",
+  TIKTOK = "tiktok",
 }
 
 export const iconComponentMap: Record<
@@ -34,4 +42,8 @@ export const iconComponentMap: Record<
   [IconType.CAMERA]: (props) => <Camera {...props} />,
   [IconType.TROPHY]: (props) => <Trophy {...props} />,
   [IconType.DUMBBELL]: (props) => <Dumbbell {...props} />,
+  [IconType.SPEED]: (props) => <Speed {...props} />,
+  [IconType.INSTAGRAM]: (props) => <Instagram {...props} />,
+  [IconType.YT]: (props) => <YT {...props} />,
+  [IconType.TIKTOK]: (props) => <Tiktok {...props} />,
 };

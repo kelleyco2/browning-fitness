@@ -13,7 +13,7 @@ export enum ButtonVariants {
 
 type ButtonProps = {
   variant: ButtonVariants;
-  href: string;
+  href?: string;
   className?: string;
   iconRight?: boolean;
   iconLeft?: boolean;
@@ -61,7 +61,7 @@ const Button: FC<ButtonProps> = ({
       {iconRight && <Icon type={IconType.RIGHT_ARROW} className={iconClass} />}
     </button>
   ) : (
-    <Link className={buttonClass} href={href}>
+    <Link className={buttonClass} href={href ?? "#"}>
       {iconLeft && <Icon type={IconType.LEFT_ARROW} className={iconClass} />}
       {children}
       {iconRight && <Icon type={IconType.RIGHT_ARROW} className={iconClass} />}
