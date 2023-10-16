@@ -15,16 +15,20 @@ const menuConfig = [
     href: "/",
   },
   {
-    label: "Services",
-    href: "/",
-  },
-  {
-    label: "Portfolio",
-    href: "/",
-  },
-  {
     label: "About",
-    href: "/",
+    href: "/about",
+  },
+  {
+    label: "Dashboard",
+    href: "/dashboard",
+  },
+  {
+    label: "Pricing",
+    href: "/pricing",
+  },
+  {
+    label: "Contact",
+    href: "/contact",
   },
 ];
 
@@ -55,35 +59,40 @@ const MobileMenu = ({ open, setOpen }: MobileMenuProps) => {
             </li>
           ))}
           <li className="mt-[45px]">
-            <Button variant={ButtonVariants.PRIMARY} href="/">
-              Work with us
+            <Button variant={ButtonVariants.PRIMARY} href="/pricing">
+              Subscribe now
             </Button>
           </li>
         </ul>
         <footer>
           <ul>
-            <li className="flex mb-6">
-              <Link href="/" className="mr-6">
-                <Icon type={IconType.FB} />
+            <li className="flex mb-6 ">
+              <Link
+                href="https://instagram.com/browning.fitness?igshid=MmIzYWVlNDQ5Yg%3D%3D"
+                className="mr-2 w-[20px] h-[20px] text-grey2"
+              >
+                <Icon type={IconType.INSTAGRAM} />
               </Link>
-              <Link href="/">
-                <Icon type={IconType.LINKEDIN} />
+              <Link
+                className="mr-2 w-[20px] h-[20px] text-grey2"
+                href="https://youtube.com/@BrowningFitness"
+              >
+                <Icon type={IconType.YT} />
+              </Link>
+              <Link
+                className="mr-2 w-[20px] h-[20px] text-grey2"
+                href="https://www.tiktok.com/@ogden.athletes?_r=1&_t=8cb3nN61ikY"
+              >
+                <Icon type={IconType.TIKTOK} />
               </Link>
             </li>
             <li className="font-base text-grey2 mb-6">
-              <a href="tel:801-628-8299">801-628-8299</a>
+              <a href="tel:360-936-5739">360-936-5739</a>
             </li>
             <li className="font-base text-grey2 mb-6">
-              <a href="mailto:brian@capitalviewaccounting.com">
-                brian@capitalviewaccounting.com
+              <a href="mailto:zak.lyle.browning@gmail.com">
+                zak.lyle.browning@gmail.com
               </a>
-            </li>
-            <li>
-              <address className="not-italic">
-                <p className="font-base text-grey2">3084 S 1900 W,</p>
-                <p className="font-base text-grey2">Ogden, Utah 84401</p>
-                <p className="font-base text-grey2">United States</p>
-              </address>
             </li>
           </ul>
         </footer>

@@ -21,9 +21,9 @@ const FullWidthCta = ({
 }: FullWidthCtaProps) => {
   return (
     <Section
-      variant={SectionVariants.LARGE}
+      variant={hero ? SectionVariants.XL : SectionVariants.LARGE}
       outerClassName="bg-tertiary"
-      innerClassName=" flex flex-col items-center text-white"
+      innerClassName="flex flex-col items-center text-white"
       style={
         hero
           ? {
@@ -36,8 +36,16 @@ const FullWidthCta = ({
           : {}
       }
     >
-      <h2 className="font-f2 mb-2 md:mb-4">{heading}</h2>
-      {subheading && <p className="mb-6">{subheading}</p>}
+      {hero ? (
+        <h1 className="font-f1 mb-2 md:mb-4">{heading}</h1>
+      ) : (
+        <h2 className="font-f2 mb-2 md:mb-4">{heading}</h2>
+      )}
+      {subheading && hero ? (
+        <h3 className="font-f4 mb-6">{subheading}</h3>
+      ) : (
+        <p className="mb-6">{subheading}</p>
+      )}
       <Button variant={cta.variant} href={cta.href}>
         {cta.text}
       </Button>
