@@ -12,6 +12,8 @@ type ServiceList = {
 type ServicesProps = {
   mainHeading?: string;
   serviceList?: ServiceList[];
+  gridTabletCols?: string;
+  gridDesktopTabletCols?: string;
 };
 
 const mockServiceList = [
@@ -40,13 +42,15 @@ const mockServiceList = [
 const Services = ({
   mainHeading,
   serviceList = mockServiceList,
+  gridTabletCols,
+  gridDesktopTabletCols,
 }: ServicesProps) => {
   return (
     <Section variant={SectionVariants.LARGE} outerClassName="bg-grey4">
       {mainHeading && (
         <h2 className="font-f2 mb-10 lg:mb-16 text-center">{mainHeading}</h2>
       )}
-      <Grid>
+      <Grid tabletCols={gridTabletCols} desktopCols={gridDesktopTabletCols}>
         {serviceList.map(({ subheading, text, icon }) => (
           <li
             key={subheading}

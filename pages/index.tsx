@@ -11,23 +11,18 @@ import { IconType } from "../svgs/icons.constants";
 const ServiceList = [
   {
     subheading: "Custom Online Program",
-    text: "Each athlete is created a personal program based on their goals, schedule, developmental level, and additional training. Programs are adjusted weekly or even daily as circumstances change.",
+    text: "Workout and nutrition plans customized to personal goals, abilities, and experience are granted to each client. Plans gradually increase in difficulty and complexity week to week to ensure progress is made and goals are achieved.",
     icon: IconType.LAPTOP,
   },
   {
     subheading: "Instructional Videos",
-    text: "Videos  are available explaining and demonstrating how to properly perform each exercise are available to help athletes maximize results and minimize risk of injury.",
+    text: "Videos explaining and demonstrating how to properly perform each exercise are available to each athlete to help athletes maximize results and minimize risk of injury.",
     icon: IconType.CAMERA,
   },
   {
-    subheading: "Personal Coaching",
-    text: "A personal coach is assigned to athletes to give guidance as needed. Coaches are available via email and online appointments to direct athletes every step of the way.",
+    subheading: "Additional resources",
+    text: "Recommendations for supplements, recovery, and other therapies to improve fitness results are granted to each client. Specific instructions as to what, how, when, and why each recommendation should be applied are given as well.",
     icon: IconType.DUMBBELL,
-  },
-  {
-    subheading: "Rewards Program",
-    text: "As athletes complete workouts, they earn points towards rewards program. Points can be spent on prizes such as brand apparel, gift cards, program discounts, and much more.",
-    icon: IconType.TROPHY,
   },
 ];
 
@@ -51,8 +46,10 @@ export default function Home() {
           }}
         />
         <Services
-          mainHeading="Become a better athlete on YOUR time."
+          mainHeading="Reach your goals on YOUR time."
           serviceList={ServiceList}
+          gridTabletCols=""
+          gridDesktopTabletCols="xl:grid-cols-3"
         />
         <TwoColumn
           content={{
