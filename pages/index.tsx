@@ -54,8 +54,8 @@ export default function Home() {
         <TwoColumn
           content={{
             heading: "",
-            subheading: "Elevate your athleticism",
-            body: "Becoming a better all-around athlete is an inspiring journey of continuous growth. It's about refining your physical skills, nurturing mental resilience, and demonstrating sportsmanship. Through dedicated training, proper nutrition, and unwavering determination, you can reach new heights. Set bold goals, embrace expert guidance, and cultivate a relentless passion for self-improvement, both on and off the field. Your path to excellence is marked by persistence and boundless inspiration.",
+            subheading: "Elevate your fitness",
+            body: "No matter who you are, fitness is essential to living a balanced, high quality life. Despite knowing this, most struggle finding a way to effectively implement a routine that can be maintained long-term. It’s difficult to find a program that encompasses all the many dimensions that play into achieving excellent fitness and that fits your goals and schedule. Join the program that covers everything you need to get in the best shape of your life, is tailored to your goals, and can be implemented whenever and wherever.",
           }}
           image={{
             src: "/dumbells.jpg",
