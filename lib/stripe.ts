@@ -8,6 +8,6 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
 export const baseUrl =
   process.env.NODE_ENV === "development"
     ? `http://localhost:3000`
-    : `https://browning-fitness.vercel.app`;
+    : `https://www.browningfit.com`;
 
 export default stripe;

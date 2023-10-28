@@ -40,8 +40,6 @@ type HeaderProps = {
 
 const Header = ({ variant }: HeaderProps) => {
   const { data: session, status } = useSession();
-  console.log(session);
-  console.log(status);
   const [isOpen, setOpen] = useState(false);
   const isPrimary = variant === HeaderVariants.PRIMARY;
   return (
