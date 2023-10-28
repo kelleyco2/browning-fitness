@@ -55,11 +55,11 @@ const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
       />
       <Layout headerVariant={HeaderVariants.SECONDARY}>
         <Section variant={SectionVariants.LARGE}>
-          <div className="flex justify-between mb-12">
+          <div className="flex flex-col items-center md:flex-row justify-between mb-12">
             <h1 className="font-f1 text-center ">Program Dashboard</h1>
-            {isSubscribed && (
+            {true && (
               <Button
-                className="!w-[277px]"
+                className="!w-[277px] mt-6 md:mt-0"
                 variant={ButtonVariants.PRIMARY}
                 onClick={manageBilling}
               >

@@ -3,10 +3,14 @@ import Link from "next/link";
 import { IconType } from "../svgs/icons.constants";
 import Button, { ButtonVariants } from "./Button";
 import Icon from "./Icon";
+import { Session } from "@prisma/client";
+import { signIn, signOut } from "next-auth/react";
 
 type MobileMenuProps = {
   open: boolean;
   setOpen: (open: boolean) => void;
+  session: Session | null;
+  status: "loading" | "authenticated" | "unauthenticated";
 };
 
 const menuConfig = [
@@ -32,7 +36,7 @@ const menuConfig = [
   },
 ];
 
-const MobileMenu = ({ open, setOpen }: MobileMenuProps) => {
+const MobileMenu = ({ open, setOpen, session, status }: MobileMenuProps) => {
   return (
     <div
       className={classNames(
@@ -58,6 +62,23 @@ const MobileMenu = ({ open, setOpen }: MobileMenuProps) => {
               </Link>
             </li>
           ))}
+          <li>
+            {status !== "loading" && !session ? (
+              <p
+                className="mr-10 cursor-pointer text-black font-f4"
+                onClick={() => signIn()}
+              >
+                Sign in
+              </p>
+            ) : (
+              <p
+                className="mr-10 cursor-pointer text-black font-f4"
+                onClick={() => signOut()}
+              >
+                Sign out
+              </p>
+            )}
+          </li>
           <li className="mt-[45px]">
             <Button variant={ButtonVariants.PRIMARY} href="/pricing">
               Subscribe now

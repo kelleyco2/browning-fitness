@@ -85,7 +85,13 @@ const Header = ({ variant }: HeaderProps) => {
         </ul>
       </nav>
       <Burger setOpen={setOpen} isPrimary={isPrimary} />
-      <MobileMenu open={isOpen} setOpen={setOpen} />
+      <MobileMenu
+        open={isOpen}
+        setOpen={setOpen}
+        // @ts-ignore
+        session={session}
+        status={status}
+      />
     </header>
   );
 };
