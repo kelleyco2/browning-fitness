@@ -76,28 +76,28 @@ const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
               {
                 title: "Basketball Workout Programs",
                 subtitle:
-                  "The basketball workout program is a structured fitness regimen designed to enhance a player's skills, athleticism, and overall performance on the basketball court.",
+                  "These programs are structured fitness regimens designed to increase a player's vertical, speed, agility, and overall athleticism on the basketball court. A variety of options are available to accommodate schedule, equipment availability, and workload.",
                 icon: "/vertical.png",
                 link: "https://docs.google.com/spreadsheets/d/1omNhgSim6IdZ8oeul-lXrtLWtHfUzL5mimE7wlWeCjs/edit?usp=gmail",
               },
               {
                 title: "Football Workout Programs",
                 subtitle:
-                  "These programs typically incorporate a variety of exercises and drills that focus on areas such as speed, agility, strength, endurance, and football-specific skills like tackling, blocking, and catching.",
+                  "Our football programs incorporate a variety of exercises and drills that focus on areas such as speed, agility, and strength to help our athletes become dominant out on the gridiron. A variety of options are available to accommodate schedule, equipment availability, and workload.",
                 icon: "/agility.png",
                 link: "https://docs.google.com/spreadsheets/d/1omNhgSim6IdZ8oeul-lXrtLWtHfUzL5mimE7wlWeCjs/edit?usp=gmail",
               },
               {
                 title: "Nutrition Tools",
                 subtitle:
-                  "A nutrition program is a carefully planned dietary strategy aimed at promoting and maintaining optimal health and well-being.",
+                  "Given the uniqueness of every athlete regarding goals, metabolism, food tolerances, etc., nutrition can be complicated and confusing. Arm yourself with the tools needed to assemble a nutrition plan that will help you attain your specific goals.",
                 icon: "/nutrition.png",
                 link: "https://docs.google.com/document/d/1CPA0Z3VoV6BF75_OFfb4-JSxji58TGsAYpovbGND-Q0/edit?usp=gmail",
               },
               {
                 title: "Recovery Tools",
                 subtitle:
-                  "A post-exercise recovery program is a structured approach to help the body recuperate and repair after a workout or physical activity.",
+                  "Many athletes undervalue and misunderstand proper recovery. However, an effective recovery regimen can be the difference between significant and minor improvement, as well as prevent injury. Use these tools to take your progress to a new level.",
                 icon: "/recovery-icon.png",
                 link: "https://docs.google.com/document/d/1YkpK2SnsG-Oo7_CJhgnvK23pQbL3ygry8-BRwhwZGD4/edit?usp=gmail",
               },

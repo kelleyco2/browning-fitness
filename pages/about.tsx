@@ -25,7 +25,7 @@ const About = () => {
           }}
           content={{
             heading: "The Coach",
-            body: "I'm Zak Browning, a dedicated Sports Performance Coach with a passion for helping athletes of all ages and skill levels enhance their strength, speed, and overall athleticism. I'm committed to developing both physical and mental skills in athletes across various sports, using my knowledge and experience to help you become the athlete you aspire to be.",
+            body: "My name is Zak Browning. I am a Sports Performance Coach working to help athletes build and improve strength, speed, and overall athleticism. I have experience working with athletes of all ages and levels ranging from youth to collegiate. I am 100% committed to assisting my athletes develop the physical and mental skills necessary to advance their game. This is something I am truly passionate about.No matter the sport, if you are looking to run faster, jump higher, or hit harder, allow me to use my knowledge, experience, and dedication to help you transform into the athlete you want to be.",
           }}
           image={{
             src: "/Zak-Browning.jpeg",
@@ -46,7 +46,7 @@ const About = () => {
           imageLeft
           content={{
             heading: "Zak's Athletic Bio",
-            body: "Zak, hailing from Vancouver, WA, was a multi-sport athlete during his formative years, excelling particularly in high school football. He achieved remarkable feats, including setting his school's sack record, earning All-Region and All-State honors, and being named Player of the Year in his league. He then attended Southern Utah University on a football scholarship, making a significant impact as a freshman linebacker. Despite a sophomore year marred by injuries, he secured 1st Team All-Conference honors and helped his team reach the playoffs before an early retirement due to injuries.",
+            body: "Zak is from Vancouver, WA. In high school he competed in football, basketball, and track & field. Zak particularly excelled in football where he lettered 3 years, set his high school's sack record, was a 2x All-Region Linebacker, an All-State Linebacker, an All-State Running Back, and was named the Greater St. Helen's League Player of the Year. Receiving a football scholarship, Zak attended Southern Utah University. As a true freshman, he led the Big Sky Conference in tackles, was named the Big Sky New Comer of the Year, was a Jerry Rice Award finalist, and was named a Freshman All-American. In his Sophomore year, Zak missed 3 games due to injury, but was still able to earn 1st Team All-Conference honors and help his team to the school's first ever playoff appearance. Unfortunately, injuries forced Zak's early retirement after his sophomore year.",
           }}
           image={{
             src: "/Zak-football.jpeg",
