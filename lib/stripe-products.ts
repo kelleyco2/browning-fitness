@@ -1,4 +1,4 @@
 export enum SubscriptionPriceId {
-  MONTHLY = "price_1O0aHkD1M5SuQxnyda1xbp9K",
-  YEARLY = "price_1O0aHkD1M5SuQxnyU7E4Ygfu",
+  MONTHLY = "price_1O63xmD1M5SuQxnythoUF98w",
+  YEARLY = "price_1O63xmD1M5SuQxnydMtGN9kQ",
 }
