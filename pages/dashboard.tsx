@@ -57,17 +57,19 @@ const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
         <Section variant={SectionVariants.LARGE}>
           <div className="flex justify-between mb-12">
             <h1 className="font-f1 text-center ">Program Dashboard</h1>
-            <Button
-              className="!w-[277px]"
-              variant={ButtonVariants.PRIMARY}
-              onClick={manageBilling}
-            >
-              {loading ? (
-                <BounceLoader className="mx-auto" color="#fff" size={22} />
-              ) : (
-                "Manage billing and subscription"
-              )}
-            </Button>
+            {isSubscribed && (
+              <Button
+                className="!w-[277px]"
+                variant={ButtonVariants.PRIMARY}
+                onClick={manageBilling}
+              >
+                {loading ? (
+                  <BounceLoader className="mx-auto" color="#fff" size={22} />
+                ) : (
+                  "Manage billing and subscription"
+                )}
+              </Button>
+            )}
           </div>
           <Grid gap="gap-x-6 gap-y-12" desktopCols="xl:grid-cols-2">
             {[
