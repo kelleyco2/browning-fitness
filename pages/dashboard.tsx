@@ -1,15 +1,16 @@
+import { useState } from "react";
 import { GetServerSidePropsContext } from "next";
+import Image from "next/image";
 import { getServerSession } from "next-auth";
+import { BounceLoader } from "react-spinners";
+import { StripeSubscriptionStatus } from "@prisma/client";
+
 import { authOptions } from "./api/auth/[...nextauth]";
 import prisma from "../lib/prisma";
-import { StripeSubscriptionStatus } from "@prisma/client";
 import Layout from "../components/Layout";
 import { HeaderVariants } from "../components/Header";
 import Section, { SectionVariants } from "../components/Section";
 import Grid from "../components/Grid";
-import { IconType } from "../svgs/icons.constants";
-import Icon from "../components/Icon";
-import Image from "next/image";
 import Button, { ButtonVariants } from "../components/Button";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
@@ -21,8 +22,10 @@ type DashboardPropsType = {
 
 const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
   const { push, asPath } = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const manageBilling = async () => {
+    setLoading(true);
     const res = await fetch("/api/create-billing-portal", {
       headers: { "Content-Type": "application/json" },
     });
@@ -30,12 +33,17 @@ const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
     if (res.status !== 200) {
       const result = await res.json();
 
+      setLoading(false);
+
       return toast.error(result.error);
     }
 
     const result = await res.json();
 
-    if (result.billingPortalUrl) push(result.billingPortalUrl);
+    if (result.billingPortalUrl) {
+      setLoading(false);
+      push(result.billingPortalUrl);
+    }
   };
 
   return (
@@ -49,71 +57,69 @@ const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
         <Section variant={SectionVariants.LARGE}>
           <div className="flex justify-between mb-12">
             <h1 className="font-f1 text-center ">Program Dashboard</h1>
-            <Button variant={ButtonVariants.PRIMARY} onClick={manageBilling}>
-              Manage billing and subscription
+            <Button
+              className="w-[277px]"
+              variant={ButtonVariants.PRIMARY}
+              onClick={manageBilling}
+            >
+              {loading ? (
+                <BounceLoader className="mx-auto" color="#fff" size={22} />
+              ) : (
+                "Manage billing and subscription"
+              )}
             </Button>
           </div>
-          <Grid gap="gap-x-6 gap-y-12" desktopCols="xl:grid-cols-3">
+          <Grid gap="gap-x-6 gap-y-12" desktopCols="xl:grid-cols-2">
             {[
               {
-                title: "Speed program",
+                title: "Basketball Workout Programs",
                 subtitle:
-                  "Speed kills. Use latest research based training to obtain new levels of acceleration and linear speed.",
-                icon: "/speed.png",
-              },
-              {
-                title: "Agility program",
-                subtitle:
-                  "Training to increase agility is complicated. Use our tried and proven formula to improve foot speed and change of direction quickness.",
-                icon: "/agility.png",
-              },
-              {
-                title: "Vertical program",
-                subtitle:
-                  "It's more than dunking. Our program uses advanced drills to boost vertical jump and explosiveness for any sport.",
+                  "The basketball workout program is a structured fitness regimen designed to enhance a player's skills, athleticism, and overall performance on the basketball court.",
                 icon: "/vertical.png",
+                link: "https://docs.google.com/spreadsheets/d/1omNhgSim6IdZ8oeul-lXrtLWtHfUzL5mimE7wlWeCjs/edit?usp=gmail",
               },
               {
-                title: "Strength program",
+                title: "Football Workout Programs",
                 subtitle:
-                  "Maximizing strength and muscle is complex, but our program is backed by research and results.",
-                icon: IconType.DUMBBELL,
+                  "These programs typically incorporate a variety of exercises and drills that focus on areas such as speed, agility, strength, endurance, and football-specific skills like tackling, blocking, and catching.",
+                icon: "/agility.png",
+                link: "https://docs.google.com/spreadsheets/d/1omNhgSim6IdZ8oeul-lXrtLWtHfUzL5mimE7wlWeCjs/edit?usp=gmail",
               },
               {
-                title: "Recovery program",
+                title: "Nutrition Tools",
                 subtitle:
-                  "Recovery is vital in training. Nutrition, stretching, and sleep are key. We'll design a protocol to boost your progress.",
-                icon: "/recovery.png",
+                  "A nutrition program is a carefully planned dietary strategy aimed at promoting and maintaining optimal health and well-being.",
+                icon: "/nutrition.png",
+                link: "https://docs.google.com/document/d/1CPA0Z3VoV6BF75_OFfb4-JSxji58TGsAYpovbGND-Q0/edit?usp=gmail",
               },
-            ].map(({ title, subtitle, icon }) => (
+              {
+                title: "Recovery Tools",
+                subtitle:
+                  "A post-exercise recovery program is a structured approach to help the body recuperate and repair after a workout or physical activity.",
+                icon: "/recovery-icon.png",
+                link: "https://docs.google.com/document/d/1YkpK2SnsG-Oo7_CJhgnvK23pQbL3ygry8-BRwhwZGD4/edit?usp=gmail",
+              },
+            ].map(({ title, subtitle, icon, link }) => (
               <li
                 key={title}
                 className="flex flex-col justify-center items-center p-4 shadow-[0_5px_15px_2px_rgb(0,0,0,0.15)]"
               >
-                {title === "Strength program" ? (
-                  <div className="w-12 h-12 mb-4">
-                    <Icon
-                      type={icon as IconType}
-                      className="stroke-[#767676]"
-                    />
-                  </div>
-                ) : (
-                  <Image
-                    src={icon}
-                    alt="speed"
-                    width={48}
-                    height={48}
-                    className="mb-4"
-                  />
-                )}
+                <Image
+                  src={icon}
+                  alt="speed"
+                  width={48}
+                  height={48}
+                  className="mb-4"
+                />
                 <h2 className="font-f4 mb-2">{title}</h2>
                 <p className="text-center mb-4">{subtitle}</p>
                 {isSubscribed ? (
                   <Button
                     className="!w-full justify-center"
                     variant={ButtonVariants.PRIMARY}
+                    href={link}
                   >
-                    Download program
+                    View program
                   </Button>
                 ) : (
                   <Button
