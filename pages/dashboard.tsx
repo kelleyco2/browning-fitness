@@ -58,7 +58,7 @@ const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
           <div className="flex justify-between mb-12">
             <h1 className="font-f1 text-center ">Program Dashboard</h1>
             <Button
-              className="w-[277px]"
+              className="!w-[277px]"
               variant={ButtonVariants.PRIMARY}
               onClick={manageBilling}
             >
