@@ -54,14 +54,19 @@ const Footer = () => {
       <div className="bg-black px-4 md:px-10 py-6 flex flex-col-reverse md:flex-row justify-between">
         <ul className="flex flex-col-reverse md:flex-row">
           {[
-            `© ${new Date().getFullYear()} Copyright`,
-            `Legal`,
-            `Privacy Policy`,
-          ].map((label) => (
-            <li key={label} className="mb-8 md:mb-0 md:mr-6">
-              <Link href="/">{label}</Link>
-            </li>
-          ))}
+            { label: `© ${new Date().getFullYear()} Copyright`, href: null },
+            { label: `Terms of service`, href: "/terms-of-service" },
+          ].map(({ label, href }) =>
+            href ? (
+              <li key={label} className="mb-8 md:mb-0 md:mr-6">
+                <Link href={href}>{label}</Link>
+              </li>
+            ) : (
+              <li key={label} className="mb-8 md:mb-0 md:mr-6">
+                <p>{label}</p>
+              </li>
+            )
+          )}
         </ul>
         <div className="flex mb-8 md:mb-0">
           <Link
