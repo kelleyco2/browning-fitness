@@ -85,7 +85,7 @@ const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
                 subtitle:
                   "Our football programs incorporate a variety of exercises and drills that focus on areas such as speed, agility, and strength to help our athletes become dominant out on the gridiron. A variety of options are available to accommodate schedule, equipment availability, and workload.",
                 icon: "/agility.png",
-                link: "https://docs.google.com/spreadsheets/d/1omNhgSim6IdZ8oeul-lXrtLWtHfUzL5mimE7wlWeCjs/edit?usp=gmail",
+                link: "https://docs.google.com/spreadsheets/d/11cJn7Je7VOqEpYrafQUJIImQMxln-pi3J_QFTf1kHXE/edit#gid=0",
               },
               {
                 title: "Nutrition Tools",
