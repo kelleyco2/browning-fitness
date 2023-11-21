@@ -44,7 +44,9 @@ const Pricing = () => {
 
     if (res.status !== 200) {
       setIsLoading(false);
-      if (res.status === 401) return toast.error(<MustBeLoggedIn />);
+      if (res.status === 401) {
+        return signIn();
+      }
 
       const result = await res.json();
 
