@@ -31,7 +31,7 @@ const FullWidthCta = ({
               backgroundSize: "cover",
               backgroundPosition: "center",
               backgroundImage:
-                "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero-background.jpeg')",
+                "linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/gym.jpg')",
             }
           : {}
       }
