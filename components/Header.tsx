@@ -16,10 +16,6 @@ const navConfig = [
     href: "/about",
   },
   {
-    label: "Dashboard",
-    href: "/dashboard",
-  },
-  {
     label: "Pricing",
     href: "/pricing",
   },

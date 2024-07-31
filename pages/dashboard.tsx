@@ -144,26 +144,33 @@ const Dashboard = ({ isSubscribed }: DashboardPropsType) => {
 export default Dashboard;
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const session = await getServerSession(ctx.req, ctx.res, authOptions);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: "/api/auth/signin",
-        permanent: false,
-      },
-    };
-  }
-
-  const user = await prisma.user.findUnique({
-    where: {
-      id: session.user?.id,
-    },
-  });
-
   return {
-    props: {
-      isSubscribed: user?.stripeSubscriptionStatus,
+    redirect: {
+      permanent: false,
+      destination: "/",
     },
   };
+
+  // const session = await getServerSession(ctx.req, ctx.res, authOptions);
+
+  // if (!session) {
+  //   return {
+  //     redirect: {
+  //       destination: "/api/auth/signin",
+  //       permanent: false,
+  //     },
+  //   };
+  // }
+
+  // const user = await prisma.user.findUnique({
+  //   where: {
+  //     id: session.user?.id,
+  //   },
+  // });
+
+  // return {
+  //   props: {
+  //     isSubscribed: user?.stripeSubscriptionStatus,
+  //   },
+  // };
 };
