@@ -95,43 +95,15 @@ const Pricing = () => {
         <Section variant={SectionVariants.MEDIUM} outerClassName="bg-grey4">
           <div className="flex flex-col items-center">
             <h1 className="font-f1">Program Pricing</h1>
-            <h3 className="font-f4 mt-4 text-center">
+            <h3 className="font-f4 mt-4 text-center mb-6">
               Subscribe now and get access to your personalized program!
             </h3>
-            <div className="my-6 flex items-center">
-              <p className="mr-4 font-bold">Yearly</p>
-              <label
-                htmlFor="toggle"
-                className="relative inline-flex cursor-pointer items-center"
-              >
-                <input
-                  type="checkbox"
-                  id="toggle"
-                  className="sr-only"
-                  checked={isChecked}
-                  onChange={() => setIsChecked((prev) => !prev)}
-                />
-
-                <div
-                  className={`shadow-[0px_4px_4px_rgba(67,67,68,0.08)]' rounded-full transition-all`}
-                >
-                  <div className="h-8 w-16 rounded-full border border-grey3 bg-white">
-                    <div
-                      className={`absolute left-1 top-1 h-6 w-6 rounded-full bg-primary transition-all ${
-                        isChecked ? "translate-x-8" : ""
-                      }`}
-                    />
-                  </div>
-                </div>
-              </label>
-              <p className="mx-4 font-bold">Monthly</p>
-            </div>
 
             <div className="w-full max-w-xl rounded-lg bg-white shadow-pricing-card">
               <div className="h-2.5 w-full rounded-t-lg bg-primary" />
               <div className="mt-12 flex flex-col items-center border-b-2 px-8 pb-12">
                 <p className="font-f1 text-primary">
-                  {isChecked ? "$75" : "$750"}
+                  {isChecked ? "$100" : "$750"}
                 </p>
                 <p className="my-4 whitespace-nowrap">
                   {isChecked
